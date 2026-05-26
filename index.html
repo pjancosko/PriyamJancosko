@@ -34,7 +34,9 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
   padding: 1.4rem 2.5rem;
-  mix-blend-mode: normal;
+  background: rgba(247,243,238,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 0.5px solid rgba(42,58,92,0.08);
 }
 .nav-name {
   font-family: 'Cormorant Garamond', serif;
@@ -44,47 +46,36 @@ nav {
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--ink); text-decoration: none; opacity: 0.5;
+  color: var(--ink); text-decoration: none; opacity: 0.45;
   transition: opacity 0.2s;
 }
 .nav-links a:hover { opacity: 1; }
 
-/* HERO — full image grid, no text block */
+/* HERO */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 55vh 35vh;
+  grid-template-rows: 50vh 32vh;
   gap: 3px;
   padding-top: 52px;
 }
-.hero-cell {
-  overflow: hidden; position: relative;
-  background: var(--blush);
-}
-.hero-cell img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform 0.6s ease;
-}
+.hero-cell { overflow: hidden; position: relative; background: var(--blush); }
+.hero-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
 .hero-cell:hover img { transform: scale(1.03); }
 .hero-cell.tall { grid-row: span 2; }
-.hero-cell.wide { grid-column: span 2; }
-
-/* placeholder color blocks for empty cells */
 .hero-cell.c1 { background: var(--blush); }
 .hero-cell.c2 { background: var(--navy); }
-.hero-cell.c3 { background: var(--yellow); }
-.hero-cell.c4 { background: var(--sage); opacity: 0.7; }
+.hero-cell.c3 { background: var(--yellow); opacity:0.85; }
+.hero-cell.c4 { background: #C8D0C0; }
 .hero-cell.c5 { background: var(--rose); }
-
 .hero-cell-label {
-  position: absolute; bottom: 1.2rem; left: 1.2rem;
-  font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: white; opacity: 0;
-  transition: opacity 0.3s;
+  position: absolute; bottom: 1rem; left: 1rem;
+  font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: white; opacity: 0; transition: opacity 0.3s;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 .hero-cell:hover .hero-cell-label { opacity: 1; }
 
-/* NAME OVERLAY on hero */
 .hero-name-overlay {
   position: absolute; bottom: 2.5rem; right: 2.5rem;
   text-align: right; pointer-events: none; z-index: 10;
@@ -92,139 +83,211 @@ nav {
 .hero-name-overlay h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2.2rem, 4vw, 4rem);
-  font-weight: 300; line-height: 1.1;
-  color: var(--ink);
+  font-weight: 300; line-height: 1.1; color: var(--ink);
 }
 .hero-name-overlay h1 em { font-style: italic; color: var(--navy); }
 .hero-name-overlay p {
-  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--muted); margin-top: 0.4rem;
 }
 
-/* TAGLINE — one line, centered */
+/* TAGLINE */
 .tagline {
-  text-align: center; padding: 3rem 2rem;
-  border-bottom: 0.5px solid rgba(42,58,92,0.1);
+  text-align: center; padding: 2.5rem 2rem;
+  border-bottom: 0.5px solid rgba(42,58,92,0.08);
 }
 .tagline p {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  font-weight: 300; font-style: italic;
-  color: var(--navy); letter-spacing: 0.02em;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 300; font-style: italic; color: var(--navy);
 }
 
-/* SECTION STRUCTURE */
-.section-head {
-  display: flex; align-items: baseline;
-  justify-content: space-between;
-  padding: 3.5rem 2.5rem 1.5rem;
+/* SECTION HEADER */
+.sec-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 3rem 2.5rem 1.2rem;
   border-bottom: 0.5px solid rgba(42,58,92,0.08);
 }
-.section-head h2 {
+.sec-head h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem; font-weight: 300; color: var(--navy);
+  font-size: 1.5rem; font-weight: 300; color: var(--navy);
 }
-.section-head span {
-  font-size: 0.65rem; letter-spacing: 0.18em;
+.sec-head span {
+  font-size: 0.62rem; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--muted);
 }
 
-/* MASONRY-STYLE GRID */
-.grid-2 {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3px; padding: 3px;
-}
-.grid-3 {
-  display: grid; grid-template-columns: 1fr 1fr 1fr;
-  gap: 3px; padding: 3px;
-}
-.grid-mixed {
+/* AR POSTERS — 960x540 respected, full width row of 3 */
+.ar-section { background: var(--warm-white); padding-bottom: 3px; }
+
+.ar-posters-row {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 3px; padding: 3px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  padding: 3px;
 }
 
-.tile {
-  position: relative; overflow: hidden;
-  background: #e8e4de; cursor: pointer;
+.ar-poster-card {
+  position: relative;
+  background: #f0ede6;
+  overflow: hidden;
+  cursor: pointer;
 }
-.tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
-.tile:hover img { transform: scale(1.04); }
-.tile-placeholder {
-  width: 100%; height: 100%; min-height: 280px;
+
+/* Force 960:540 = 16:9 ratio */
+.ar-poster-card::before {
+  content: ''; display: block; padding-top: 56.25%;
+}
+
+.ar-poster-card img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #f0ede6;
+  transition: transform 0.5s;
+}
+.ar-poster-card:hover img { transform: scale(1.03); }
+
+.ar-poster-card-placeholder {
+  position: absolute; inset: 0;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 0.5rem;
+  align-items: center; justify-content: center; gap: 0.5rem;
   font-family: 'Cormorant Garamond', serif;
   font-size: 0.85rem; font-style: italic; color: var(--muted);
 }
-.tile-placeholder .plus { font-size: 1.2rem; opacity: 0.35; font-style: normal; }
-.tile-info {
+
+.ar-card-info {
   position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 2rem 1.2rem 1rem;
-  background: linear-gradient(transparent, rgba(26,24,20,0.65));
+  padding: 1.5rem 1rem 0.9rem;
+  background: linear-gradient(transparent, rgba(26,24,20,0.6));
   opacity: 0; transition: opacity 0.3s;
 }
-.tile:hover .tile-info { opacity: 1; }
-.tile-info h3 {
+.ar-poster-card:hover .ar-card-info { opacity: 1; }
+.ar-card-info h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem; font-weight: 400; color: white; margin-bottom: 0.2rem;
+  font-size: 1rem; color: white; font-weight: 400;
 }
-.tile-info p { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+.ar-card-info p {
+  font-size: 0.65rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 0.2rem;
+}
 
-/* VIDEO TILE */
-.tile-video { aspect-ratio: 16/9; }
-.tile-video iframe { width: 100%; height: 100%; border: none; display: block; }
-
-/* AR POSTER TILE — 3 images in one card */
-.ar-trio {
-  display: grid; grid-template-columns: 1fr 1fr 1fr;
-  height: 100%; gap: 2px;
-}
-.ar-slot {
-  position: relative; overflow: hidden;
-  background: var(--blush); min-height: 280px;
-  display: flex; align-items: center; justify-content: center;
-}
-.ar-slot img { width: 100%; height: 100%; object-fit: cover; }
-.ar-slot-placeholder {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.8rem; font-style: italic;
-  color: var(--navy); opacity: 0.4; text-align: center; padding: 1rem;
-}
-.qr-dot-grid {
+/* QR icon */
+.qr-icon {
   position: absolute; bottom: 8px; right: 8px;
-  width: 28px; height: 28px; background: white;
+  width: 30px; height: 30px; background: white;
   border-radius: 3px; padding: 3px;
-  display: grid; grid-template-columns: repeat(5,1fr); gap: 1px;
+  display: grid; grid-template-columns: repeat(5,1fr); gap: 1.5px;
+  opacity: 0.85;
 }
 .qd { background: var(--navy); border-radius: 0.5px; }
 .qd.e { background: transparent; }
 
+/* HINGLISH — full width feature */
+.hinglish-section { background: var(--navy); }
+.hinglish-inner {
+  display: grid; grid-template-columns: 1fr 1.8fr;
+  min-height: 520px;
+}
+.hinglish-text {
+  padding: 4rem 3rem; display: flex;
+  flex-direction: column; justify-content: center;
+}
+.hinglish-text .label {
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blush); opacity: 0.7; margin-bottom: 1.2rem;
+}
+.hinglish-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 300; color: white; line-height: 1.2; margin-bottom: 1rem;
+}
+.hinglish-text h2 em { font-style: italic; color: var(--blush); }
+.hinglish-text p {
+  font-size: 0.92rem; line-height: 1.8;
+  color: rgba(255,255,255,0.6); max-width: 320px;
+}
+.hinglish-video {
+  position: relative; background: #1a1a2e;
+}
+.hinglish-video iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: none; display: block;
+}
+
+/* DIGITAL / ANALOG GRID */
+.work-section { background: var(--warm-white); }
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px; padding: 3px;
+}
+.work-tile {
+  position: relative; overflow: hidden;
+  background: #e8e4de; cursor: pointer;
+}
+.work-tile::before { content: ''; display: block; padding-top: 75%; }
+.work-tile img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s;
+}
+.work-tile:hover img { transform: scale(1.04); }
+.work-tile-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.4rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem; font-style: italic; color: var(--muted);
+}
+.work-tile-placeholder .plus { font-size: 1.2rem; opacity: 0.3; font-style: normal; }
+.work-tile-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.5rem 1rem 0.8rem;
+  background: linear-gradient(transparent, rgba(26,24,20,0.55));
+  opacity: 0; transition: opacity 0.3s;
+}
+.work-tile:hover .work-tile-info { opacity: 1; }
+.work-tile-info p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem; color: white;
+}
+
+/* VIDEO TILE */
+.video-tile {
+  position: relative; background: var(--navy);
+  grid-column: span 2;
+}
+.video-tile::before { content: ''; display: block; padding-top: 56.25%; }
+.video-tile iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: none;
+}
+
 /* ABOUT */
 .about-wrap {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 60vh;
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 60vh;
 }
-.about-image { background: var(--navy); overflow: hidden; }
-.about-image img { width: 100%; height: 100%; object-fit: cover; }
+.about-image { background: var(--navy); overflow: hidden; min-height: 400px; }
+.about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-image-placeholder {
   width: 100%; height: 100%; min-height: 400px;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.9rem; font-style: italic; color: rgba(255,255,255,0.3);
+  font-size: 0.9rem; font-style: italic; color: rgba(255,255,255,0.25);
 }
 .about-text-wrap {
   background: var(--navy); color: white;
   padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center;
 }
 .about-text-wrap .label {
-  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--blush); opacity: 0.7; margin-bottom: 1.5rem;
 }
 .about-text-wrap p {
-  font-size: 0.97rem; line-height: 1.9;
-  color: rgba(255,255,255,0.72); margin-bottom: 1.2rem;
+  font-size: 0.95rem; line-height: 1.9;
+  color: rgba(255,255,255,0.7); margin-bottom: 1rem;
 }
 .about-details { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
 .about-detail-label {
@@ -238,33 +301,46 @@ nav {
 .about-detail-value a { color: var(--blush); text-decoration: none; }
 
 /* CV */
-.cv-wrap { padding: 5rem 2.5rem; background: var(--warm-white); }
-.cv-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 2rem; }
-.cv-group { margin-bottom: 2.5rem; }
+.cv-wrap { padding: 4rem 2.5rem; background: var(--warm-white); }
+.cv-top {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-bottom: 1.5rem; margin-bottom: 2.5rem;
+  border-bottom: 0.5px solid rgba(42,58,92,0.08);
+}
+.cv-top h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300; color: var(--navy);
+}
+.cv-top a {
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  border-bottom: 0.5px solid var(--muted); padding-bottom: 2px;
+}
+.cv-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+.cv-group { margin-bottom: 2rem; }
 .cv-group-label {
   font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--sage); padding-bottom: 0.6rem; margin-bottom: 1rem;
+  color: var(--sage); padding-bottom: 0.5rem; margin-bottom: 0.9rem;
   border-bottom: 0.5px solid rgba(42,58,92,0.1);
 }
-.cv-row { margin-bottom: 1.1rem; }
+.cv-row { margin-bottom: 1rem; }
 .cv-row-year { font-size: 0.72rem; color: var(--muted); }
 .cv-row-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem; color: var(--navy);
+  font-size: 1rem; color: var(--navy);
 }
-.cv-row-sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
+.cv-row-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
 
 /* CONTACT */
 .contact-wrap {
-  padding: 5rem 2.5rem; text-align: center;
-  background: var(--blush);
+  padding: 5rem 2.5rem; text-align: center; background: var(--blush);
 }
 .contact-wrap h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 300; color: var(--navy); margin-bottom: 0.75rem;
 }
-.contact-wrap p { font-size: 0.9rem; color: var(--navy); opacity: 0.6; margin-bottom: 2.5rem; }
+.contact-wrap p { font-size: 0.88rem; color: var(--navy); opacity: 0.6; margin-bottom: 2.5rem; }
 .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
 .contact-link {
   font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
@@ -280,27 +356,21 @@ footer {
 }
 footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @media (max-width: 768px) {
   nav { padding: 1rem 1.2rem; }
   .nav-links { gap: 1.2rem; }
-  .hero { grid-template-columns: 1fr 1fr; grid-template-rows: 40vw 40vw; }
+  .hero { grid-template-columns: 1fr 1fr; grid-template-rows: 40vw 30vw; }
   .hero-cell.tall { grid-row: span 1; }
-  .hero-cell.wide { grid-column: span 2; }
-  .hero-name-overlay { bottom: 1rem; right: 1rem; }
-  .hero-name-overlay h1 { font-size: 1.8rem; }
-  .grid-2, .grid-3, .grid-mixed { grid-template-columns: 1fr; }
-  .ar-trio { grid-template-columns: 1fr; }
+  .ar-posters-row { grid-template-columns: 1fr; }
+  .hinglish-inner { grid-template-columns: 1fr; }
+  .hinglish-video { min-height: 56vw; }
+  .work-grid { grid-template-columns: 1fr 1fr; }
+  .video-tile { grid-column: span 2; }
   .about-wrap { grid-template-columns: 1fr; }
-  .about-image { min-height: 280px; }
   .about-text-wrap { padding: 3rem 1.5rem; }
   .cv-cols { grid-template-columns: 1fr; gap: 0; }
   .cv-wrap, .contact-wrap { padding: 3rem 1.5rem; }
-  .section-head { padding: 2.5rem 1.5rem 1rem; }
+  .sec-head { padding: 2rem 1.5rem 1rem; }
 }
 </style>
 </head>
@@ -316,175 +386,148 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </ul>
 </nav>
 
-<!-- HERO IMAGE GRID -->
+<!-- HERO -->
 <div style="position:relative;">
   <div class="hero">
-    <!-- Cell 1: tall left — replace div with img when ready -->
     <div class="hero-cell tall c1">
-      <!-- <img src="your-image.jpg" alt=""> -->
-      <span class="hero-cell-label">AR Poster Series</span>
+      <!-- <img src="Jhula.png" alt="Jhula"> -->
+      <span class="hero-cell-label">AR Posters</span>
     </div>
-    <!-- Cell 2: top middle -->
     <div class="hero-cell c2">
       <!-- <img src="your-image.jpg" alt=""> -->
       <span class="hero-cell-label">Hinglish</span>
     </div>
-    <!-- Cell 3: top right -->
     <div class="hero-cell c3">
+      <!-- <img src="your-image.jpg" alt=""> -->
+      <span class="hero-cell-label">Digital Work</span>
+    </div>
+    <div class="hero-cell c4">
       <!-- <img src="your-image.jpg" alt=""> -->
       <span class="hero-cell-label">Watercolor</span>
     </div>
-    <!-- Cell 4: bottom middle -->
-    <div class="hero-cell c4">
-      <!-- <img src="your-image.jpg" alt=""> -->
-      <span class="hero-cell-label">Digital Illustration</span>
-    </div>
-    <!-- Cell 5: bottom right -->
     <div class="hero-cell c5">
       <!-- <img src="your-image.jpg" alt=""> -->
-      <span class="hero-cell-label">Bubble Poem</span>
+      <span class="hero-cell-label">Analog Work</span>
     </div>
   </div>
-  <!-- Name sits over bottom right of grid -->
   <div class="hero-name-overlay">
     <h1>Priyam<br><em>Jancosko</em></h1>
     <p>Artist and Educator, New Jersey</p>
   </div>
 </div>
 
-<!-- ONE LINE TAGLINE -->
+<!-- TAGLINE -->
 <div class="tagline">
   <p>Watering my roots for a colorful tomorrow.</p>
 </div>
 
-<!-- AR -->
-<div id="ar">
-  <div class="section-head">
-    <h2>Augmented Reality</h2>
-    <span>A-Frame, WebAR, Open Source</span>
+<!-- AR POSTERS -->
+<div id="ar" class="ar-section">
+  <div class="sec-head">
+    <h2>AR Posters</h2>
+    <span>Augmented Reality, WebAR, A-Frame</span>
   </div>
-  <div class="grid-2">
-    <!-- AR POSTERS -->
-    <div class="tile">
-      <div class="ar-trio">
-        <div class="ar-slot">
-          <!-- <img src="poster1.jpg" alt="AR Poster 1"> -->
-          <div class="ar-slot-placeholder">+ image 1</div>
-          <div class="qr-dot-grid">
-            <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
-            <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
-            <div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div>
-            <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
-            <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
-          </div>
-        </div>
-        <div class="ar-slot">
-          <!-- <img src="poster2.jpg" alt="AR Poster 2"> -->
-          <div class="ar-slot-placeholder">+ image 2</div>
-          <div class="qr-dot-grid">
-            <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
-            <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
-            <div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div>
-            <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
-            <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
-          </div>
-        </div>
-        <div class="ar-slot">
-          <!-- <img src="poster3.jpg" alt="AR Poster 3"> -->
-          <div class="ar-slot-placeholder">+ image 3</div>
-          <div class="qr-dot-grid">
-            <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
-            <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
-            <div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div>
-            <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
-            <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
-          </div>
-        </div>
+  <div class="ar-posters-row">
+
+    <!-- JHULA -->
+    <div class="ar-poster-card">
+      <img src="Jhula.png" alt="Jhula AR Poster">
+      <div class="ar-card-info">
+        <h3>Jhula</h3>
+        <p>AR Poster, 2024 to 2025 &nbsp;·&nbsp; Scan to activate</p>
       </div>
-      <div class="tile-info">
-        <h3>AR Poster Series</h3>
-        <p>2024 to 2025 &nbsp;·&nbsp; WebAR, Watercolor &nbsp;·&nbsp; Scan to activate</p>
+      <div class="qr-icon">
+        <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
+        <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
+        <div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div>
+        <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
+        <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
       </div>
     </div>
 
-    <!-- BUBBLE POEM -->
-    <div class="tile">
-      <div class="tile-placeholder">
-        <!-- Replace with: <div class="tile-video"><iframe src="https://player.vimeo.com/video/XXXXXXX..."></iframe></div> -->
-        <span class="plus">+</span>
-        <span>Popping Bubbles and Moment of Stillness</span>
-        <span style="font-size:0.72rem; opacity:0.5;">add Vimeo embed</span>
+    <!-- SANDESH -->
+    <div class="ar-poster-card">
+      <img src="Sandesh.png" alt="Sandesh AR Poster">
+      <div class="ar-card-info">
+        <h3>Sandesh</h3>
+        <p>AR Poster, 2024 to 2025 &nbsp;·&nbsp; Scan to activate</p>
       </div>
-      <div class="tile-info">
-        <h3>Popping Bubbles and Moment of Stillness</h3>
-        <p>2025 &nbsp;·&nbsp; Interactive AR &nbsp;·&nbsp; A-Frame, Three.js</p>
+      <div class="qr-icon">
+        <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
+        <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
+        <div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div>
+        <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
+        <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
       </div>
+    </div>
+
+    <!-- SILNA -->
+    <div class="ar-poster-card">
+      <img src="Silna.png" alt="Silna AR Poster">
+      <div class="ar-card-info">
+        <h3>Silna (Stitching)</h3>
+        <p>AR Poster, 2024 to 2025 &nbsp;·&nbsp; Scan to activate</p>
+      </div>
+      <div class="qr-icon">
+        <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
+        <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
+        <div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div>
+        <div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div>
+        <div class="qd"></div><div class="qd"></div><div class="qd e"></div><div class="qd"></div><div class="qd"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HINGLISH FEATURE -->
+<div id="hinglish" class="hinglish-section">
+  <div class="hinglish-inner">
+    <div class="hinglish-text">
+      <p class="label">Featured Work, 2026</p>
+      <h2>Hinglish,<br><em>Words of Wisdom</em></h2>
+      <p>An A to Z animated journey through Hindi words of wisdom rendered in English. A meditation on language, heritage, and the knowledge that travels across cultures.</p>
+    </div>
+    <div class="hinglish-video">
+      <iframe src="https://player.vimeo.com/video/1096256402?h=fdf1b10633&autoplay=0&title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen"></iframe>
     </div>
   </div>
 </div>
 
-<!-- ANIMATION -->
-<div id="animation">
-  <div class="section-head">
-    <h2>Animation</h2>
-    <span>2D and 3D</span>
+<!-- DIGITAL WORK -->
+<div id="digital">
+  <div class="sec-head">
+    <h2>Digital Work</h2>
+    <span>Animation, Illustration, Interactive</span>
   </div>
-  <div class="grid-mixed">
-    <!-- Hinglish — featured, wider -->
-    <div class="tile">
-      <div class="tile-video" style="height:100%; min-height:320px;">
-        <iframe src="https://player.vimeo.com/video/1096256402?h=fdf1b10633&autoplay=0&title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen" style="width:100%;height:100%;border:none;display:block;"></iframe>
-      </div>
-      <div class="tile-info">
-        <h3>Hinglish, Words of Wisdom</h3>
-        <p>2026 &nbsp;·&nbsp; Animation, A-Frame</p>
-      </div>
+  <div class="work-grid">
+    <!-- Add a video tile like this when ready:
+    <div class="video-tile">
+      <iframe src="https://player.vimeo.com/video/XXXXX..."></iframe>
     </div>
-    <!-- Placeholders -->
-    <div class="tile">
-      <div class="tile-placeholder">
-        <span class="plus">+</span>
-        <span>Add animation</span>
-      </div>
-    </div>
-    <div class="tile">
-      <div class="tile-placeholder">
-        <span class="plus">+</span>
-        <span>Add animation</span>
-      </div>
-    </div>
+    -->
+    <div class="work-tile"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add animation or illustration</span></div></div>
+    <div class="work-tile"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add animation or illustration</span></div></div>
+    <div class="work-tile"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add animation or illustration</span></div></div>
+    <div class="work-tile"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add animation or illustration</span></div></div>
+    <div class="work-tile"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add animation or illustration</span></div></div>
+    <div class="work-tile"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add animation or illustration</span></div></div>
   </div>
 </div>
 
-<!-- DIGITAL ILLUSTRATIONS -->
-<div id="illustrations">
-  <div class="section-head">
-    <h2>Digital Illustrations</h2>
-    <span>Digital Art</span>
+<!-- ANALOG WORK -->
+<div id="analog" style="background:#F0EDE6;">
+  <div class="sec-head">
+    <h2>Analog Work</h2>
+    <span>Watercolor, Mixed Media, Painting</span>
   </div>
-  <div class="grid-3">
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-  </div>
-</div>
-
-<!-- WATERCOLORS -->
-<div id="watercolors">
-  <div class="section-head">
-    <h2>Watercolors</h2>
-    <span>Mixed Media, Painting</span>
-  </div>
-  <div class="grid-3">
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
-    <div class="tile"><div class="tile-placeholder"><span class="plus">+</span><span>Add image</span></div></div>
+  <div class="work-grid" style="background:#F0EDE6;">
+    <div class="work-tile" style="background:#e4e0d8;"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add painting or watercolor</span></div></div>
+    <div class="work-tile" style="background:#e4e0d8;"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add painting or watercolor</span></div></div>
+    <div class="work-tile" style="background:#e4e0d8;"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add painting or watercolor</span></div></div>
+    <div class="work-tile" style="background:#e4e0d8;"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add painting or watercolor</span></div></div>
+    <div class="work-tile" style="background:#e4e0d8;"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add painting or watercolor</span></div></div>
+    <div class="work-tile" style="background:#e4e0d8;"><div class="work-tile-placeholder"><span class="plus">+</span><span>Add painting or watercolor</span></div></div>
   </div>
 </div>
 
@@ -506,7 +549,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       </div>
       <div>
         <p class="about-detail-label">Teaching</p>
-        <p class="about-detail-value">Art and Technology Teacher, NJ Public School</p>
+        <p class="about-detail-value">Art and Technology Teacher, NJ Public School<br>Kulture Lab, Founder</p>
       </div>
       <div>
         <p class="about-detail-label">Instagram</p>
@@ -518,9 +561,9 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
 
 <!-- CV -->
 <div id="cv" class="cv-wrap">
-  <div class="section-head" style="padding: 0 0 1.5rem; border-bottom: 0.5px solid rgba(42,58,92,0.08); margin-bottom: 2.5rem;">
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--navy);">CV</h2>
-    <a href="cv.pdf" download style="font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); text-decoration:none; border-bottom: 0.5px solid var(--muted); padding-bottom:2px;">Download PDF</a>
+  <div class="cv-top">
+    <h2>CV</h2>
+    <a href="cv.pdf" download>Download PDF</a>
   </div>
   <div class="cv-cols">
     <div>
@@ -549,6 +592,11 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
           <p class="cv-row-title">Kulture Lab, Founder</p>
           <p class="cv-row-sub">Student cultural club, NJ</p>
         </div>
+        <div class="cv-row">
+          <p class="cv-row-year">2020</p>
+          <p class="cv-row-title">Watercolor Workshops</p>
+          <p class="cv-row-sub">Community practice, Monmouth County NJ</p>
+        </div>
       </div>
     </div>
     <div>
@@ -567,7 +615,22 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
         <div class="cv-row">
           <p class="cv-row-year">2024 to 2025</p>
           <p class="cv-row-title">AR Poster Series</p>
-          <p class="cv-row-sub">Augmented reality, WebAR and watercolor</p>
+          <p class="cv-row-sub">Jhula, Sandesh, Silna (Stitching)</p>
+        </div>
+      </div>
+      <div class="cv-group">
+        <p class="cv-group-label">Technical Skills</p>
+        <div class="cv-row">
+          <p class="cv-row-title">A-Frame, Three.js, WebAR</p>
+          <p class="cv-row-sub">HTML, CSS, JavaScript (open source)</p>
+        </div>
+        <div class="cv-row">
+          <p class="cv-row-title">Maya, 3D Modeling</p>
+          <p class="cv-row-sub">Adobe Creative Suite</p>
+        </div>
+        <div class="cv-row">
+          <p class="cv-row-title">Procreate, iPad painting</p>
+          <p class="cv-row-sub">Watercolor, oil, mixed media</p>
         </div>
       </div>
     </div>
