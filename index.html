@@ -445,6 +445,30 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--sage); margin-top: 0.5rem;
 }
+
+/* HERO VIDEO */
+.hero-video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56px;
+  background: var(--ink);
+  overflow: hidden;
+}
+.hero-video-wrap iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+}
+.hero-video-caption {
+  position: absolute;
+  bottom: 1.5rem; left: 2.5rem;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
 </style>
 </head>
 <body>
@@ -458,6 +482,17 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+
+<!-- HERO VIDEO -->
+<div class="hero-video-wrap">
+  <iframe
+    src="https://www.youtube.com/embed/Eo9cTHg2Vcw?autoplay=1&mute=1&loop=1&playlist=Eo9cTHg2Vcw&controls=0&modestbranding=1&rel=0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+  <span class="hero-video-caption">Priyam Jancosko</span>
+</div>
 
 <!-- AR POSTERS -->
 <div id="ar" class="ar-section" style="padding-top: 56px;">
@@ -513,7 +548,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       <p>An A to Z animated journey through Hindi words of wisdom rendered in English. A meditation on language, heritage, and the knowledge that travels across cultures.</p>
     </div>
     <div class="hinglish-video">
-      <iframe src="https://player.vimeo.com/video/1096256402?h=fdf1b10633&autoplay=0&title=0&byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+      <iframe src="https://www.youtube.com/embed/IsiTwazY2SI?rel=0&modestbranding=1" allowfullscreen allow="autoplay; fullscreen"></iframe>
     </div>
   </div>
 </div>
@@ -697,7 +732,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   <div class="contact-links">
     <a href="https://instagram.com/priyamjancosko" class="contact-link">Instagram</a>
     <a href="https://vimeo.com/priyamjancosko" class="contact-link">Vimeo</a>
-    <a href="mailto:pjancosko@gmail.com" class="contact-link">Email</a>
+    <a href="mailto:your@email.com" class="contact-link">Email</a>
   </div>
 </div>
 
