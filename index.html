@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Priyam Jancosko</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&family=Barlow:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--warm-white);
   color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Barlow', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
 }
@@ -33,24 +33,26 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1.4rem 2.5rem;
-  background: rgba(247,243,238,0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 0.5px solid rgba(42,58,92,0.08);
+  padding: 1.2rem 2.5rem;
+  background: var(--warm-white);
+  border-bottom: 1px solid rgba(42,58,92,0.07);
+  height: 56px;
 }
 .nav-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem; font-weight: 400; letter-spacing: 0.08em;
-  color: var(--ink); text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink);
+  text-decoration: none; opacity: 0.85;
 }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-full-name { display: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
+  font-family: 'Quicksand', sans-serif;
   font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--ink); text-decoration: none; opacity: 0.45;
+  color: var(--ink); text-decoration: none; opacity: 0.4;
   transition: opacity 0.2s;
 }
 .nav-links a:hover { opacity: 1; }
-
 /* HERO */
 .hero {
   display: grid;
@@ -81,7 +83,7 @@ nav {
   text-align: right; pointer-events: none; z-index: 10;
 }
 .hero-name-overlay h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: clamp(2.2rem, 4vw, 4rem);
   font-weight: 300; line-height: 1.1; color: var(--ink);
 }
@@ -97,7 +99,7 @@ nav {
   border-bottom: 0.5px solid rgba(42,58,92,0.08);
 }
 .tagline p {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: clamp(1.2rem, 2.2vw, 1.6rem);
   font-weight: 300; font-style: italic; color: var(--navy);
 }
@@ -105,19 +107,20 @@ nav {
 /* SECTION HEADER */
 .sec-head {
   display: flex; align-items: baseline; justify-content: space-between;
-  padding: 3rem 2.5rem 1.2rem;
+  padding: 2.5rem 2.5rem 1rem;
   border-bottom: 0.5px solid rgba(42,58,92,0.08);
 }
 .sec-head h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1.5rem; font-weight: 300; color: var(--navy);
 }
 .sec-head span {
-  font-size: 0.62rem; letter-spacing: 0.18em;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.62rem; letter-spacing: 0.16em;
   text-transform: uppercase; color: var(--muted);
 }
 
-/* AR POSTERS — 960x540 respected, full width row of 3 */
+/* AR POSTERS, 960x540 respected, full width row of 3 */
 .ar-section { background: var(--warm-white); padding-bottom: 3px; }
 
 .ar-posters-row {
@@ -153,7 +156,7 @@ nav {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 0.5rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 0.85rem; font-style: italic; color: var(--muted);
 }
 
@@ -165,7 +168,7 @@ nav {
 }
 .ar-poster-card:hover .ar-card-info { opacity: 1; }
 .ar-card-info h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1rem; color: white; font-weight: 400;
 }
 .ar-card-info p {
@@ -184,7 +187,7 @@ nav {
 .qd { background: var(--navy); border-radius: 0.5px; }
 .qd.e { background: transparent; }
 
-/* HINGLISH — full width feature */
+/* HINGLISH, full width feature */
 .hinglish-section { background: var(--navy); }
 .hinglish-inner {
   display: grid; grid-template-columns: 1fr 1.8fr;
@@ -195,18 +198,20 @@ nav {
   flex-direction: column; justify-content: center;
 }
 .hinglish-text .label {
-  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--blush); opacity: 0.7; margin-bottom: 1.2rem;
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 1rem;
+  font-family: 'Quicksand', sans-serif;
 }
 .hinglish-text h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: clamp(1.8rem, 3vw, 3rem);
   font-weight: 300; color: white; line-height: 1.2; margin-bottom: 1rem;
 }
 .hinglish-text h2 em { font-style: italic; color: var(--blush); }
 .hinglish-text p {
-  font-size: 0.92rem; line-height: 1.8;
-  color: rgba(255,255,255,0.6); max-width: 320px;
+  font-size: 0.85rem; line-height: 1.8;
+  color: rgba(255,255,255,0.5); max-width: 300px;
+  font-family: 'Barlow', sans-serif; font-weight: 300;
 }
 .hinglish-video {
   position: relative; background: #1a1a2e;
@@ -238,7 +243,7 @@ nav {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 0.4rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 0.85rem; font-style: italic; color: var(--muted);
 }
 .work-tile-placeholder .plus { font-size: 1.2rem; opacity: 0.3; font-style: normal; }
@@ -250,7 +255,7 @@ nav {
 }
 .work-tile:hover .work-tile-info { opacity: 1; }
 .work-tile-info p {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 0.95rem; color: white;
 }
 
@@ -274,7 +279,7 @@ nav {
 .about-image-placeholder {
   width: 100%; height: 100%; min-height: 400px;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 0.9rem; font-style: italic; color: rgba(255,255,255,0.25);
 }
 .about-text-wrap {
@@ -282,20 +287,23 @@ nav {
   padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center;
 }
 .about-text-wrap .label {
-  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--blush); opacity: 0.7; margin-bottom: 1.5rem;
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 1.5rem;
+  font-family: 'Quicksand', sans-serif; font-weight: 400;
 }
 .about-text-wrap p {
-  font-size: 0.95rem; line-height: 1.9;
-  color: rgba(255,255,255,0.7); margin-bottom: 1rem;
+  font-size: 0.9rem; line-height: 1.85;
+  color: rgba(255,255,255,0.65); margin-bottom: 1rem;
+  font-family: 'Barlow', sans-serif; font-weight: 300;
 }
 .about-details { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
 .about-detail-label {
   font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--blush); opacity: 0.6; margin-bottom: 0.2rem;
+  color: rgba(255,255,255,0.3); margin-bottom: 0.25rem;
+  font-family: 'Quicksand', sans-serif;
 }
 .about-detail-value {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.5;
 }
 .about-detail-value a { color: var(--blush); text-decoration: none; }
@@ -308,7 +316,7 @@ nav {
   border-bottom: 0.5px solid rgba(42,58,92,0.08);
 }
 .cv-top h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1.6rem; font-weight: 300; color: var(--navy);
 }
 .cv-top a {
@@ -319,6 +327,7 @@ nav {
 .cv-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
 .cv-group { margin-bottom: 2rem; }
 .cv-group-label {
+  font-family: 'Quicksand', sans-serif;
   font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--sage); padding-bottom: 0.5rem; margin-bottom: 0.9rem;
   border-bottom: 0.5px solid rgba(42,58,92,0.1);
@@ -326,7 +335,7 @@ nav {
 .cv-row { margin-bottom: 1rem; }
 .cv-row-year { font-size: 0.72rem; color: var(--muted); }
 .cv-row-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1rem; color: var(--navy);
 }
 .cv-row-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
@@ -336,7 +345,7 @@ nav {
   padding: 5rem 2.5rem; text-align: center; background: var(--blush);
 }
 .contact-wrap h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 300; color: var(--navy); margin-bottom: 0.75rem;
 }
@@ -373,58 +382,53 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   .sec-head { padding: 2rem 1.5rem 1rem; }
 }
 
-/* POSTER ROWS — vertical stack */
+/* POSTER ROWS, vertical stack */
 .poster-row {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  min-height: 480px;
-  border-bottom: 0.5px solid rgba(42,58,92,0.08);
+  grid-template-columns: 1.6fr 1fr;
+  border-bottom: 0.5px solid rgba(42,58,92,0.06);
+  min-height: 420px;
 }
 .poster-row-alt {
-  grid-template-columns: 1fr 1.4fr;
-  background: #F0EDE6;
+  grid-template-columns: 1fr 1.6fr;
+  background: #F5F1EB;
 }
 .poster-image {
-  overflow: hidden; background: #f5f1eb;
+  overflow: hidden; background: #F5F1EB;
+  display: flex; align-items: center; justify-content: center;
 }
 .poster-image img {
   width: 100%; height: 100%;
   object-fit: contain;
   object-position: center;
   display: block;
-  padding: 2rem;
+  padding: 2.5rem;
 }
 .poster-info {
-  padding: 4rem 3.5rem;
+  padding: 3rem 3rem;
   display: flex; flex-direction: column; justify-content: center;
   background: var(--warm-white);
+  border-left: 0.5px solid rgba(42,58,92,0.06);
 }
 .poster-row-alt .poster-info {
-  background: #F0EDE6;
+  background: #F5F1EB;
+  border-left: none;
+  border-right: 0.5px solid rgba(42,58,92,0.06);
 }
 .poster-info h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
-  font-weight: 300; color: var(--navy);
+  font-family: 'Quicksand', sans-serif;
+  font-size: clamp(1.4rem, 2vw, 2.2rem);
+  font-weight: 500; color: var(--navy);
   margin-bottom: 0.5rem; line-height: 1.1;
 }
 .poster-sub {
-  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 1.5rem;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.6rem;
 }
 .poster-desc {
-  font-size: 0.95rem; line-height: 1.8; color: var(--ink);
-  opacity: 0.7; max-width: 340px; margin-bottom: 2rem;
-}
-.poster-scan-note {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 0.6rem 1rem;
-  border: 0.5px solid rgba(42,58,92,0.2);
-  border-radius: 4px; width: fit-content;
-}
-.poster-scan-note span {
-  font-size: 0.7rem; letter-spacing: 0.08em;
-  color: var(--navy); opacity: 0.6;
+  font-size: 0.9rem; line-height: 1.8; color: var(--ink);
+  opacity: 0.65; max-width: 300px;
 }
 
 @media (max-width: 768px) {
@@ -436,6 +440,11 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   .poster-info { padding: 2.5rem 1.5rem; }
 }
 
+.poster-tech {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--sage); margin-top: 0.5rem;
+}
 </style>
 </head>
 <body>
@@ -450,17 +459,10 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </ul>
 </nav>
 
-<!-- TAGLINE / HERO TEXT -->
-<div class="tagline" style="padding: 4rem 2rem 2.5rem; border-bottom: 0.5px solid rgba(42,58,92,0.08);">
-  <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:300; color:var(--navy); letter-spacing:0.02em; margin-bottom:0.6rem;">Priyam <em style="font-style:italic; color:var(--rose);">Jancosko</em></p>
-  <p style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:1.5rem;">Artist and Educator, New Jersey</p>
-  <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.1rem,2vw,1.5rem); font-weight:300; font-style:italic; color:var(--navy);">Watering my roots for a colorful tomorrow.</p>
-</div>
-
 <!-- AR POSTERS -->
-<div id="ar" class="ar-section">
+<div id="ar" class="ar-section" style="padding-top: 56px;">
   <div class="sec-head">
-    <h2>AR Posters</h2>
+    <h2>Gyanlok AR Poster Series</h2>
     <span>Scan with your phone to activate the AR experience</span>
   </div>
 
@@ -471,11 +473,8 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
     </div>
     <div class="poster-info">
       <h3>Jhula</h3>
-      <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2024 to 2025</p>
-      <p class="poster-desc">Scan the QR code and hover over the porch. Ringer on for full experience. Stay a moment.</p>
-      <div class="poster-scan-note">
-        <span>Point your phone camera at the QR on the poster to activate</span>
-      </div>
+      <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2026</p>
+      <p class="poster-tech">Adobe Fresco, Maya Autodesk, Substance Painter, A-Frame</p>
     </div>
   </div>
 
@@ -483,11 +482,8 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   <div class="poster-row poster-row-alt">
     <div class="poster-info">
       <h3>Sandesh</h3>
-      <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2024 to 2025</p>
-      <p class="poster-desc">A message carried across distance. Scan to receive it.</p>
-      <div class="poster-scan-note">
-        <span>Point your phone camera at the QR on the poster to activate</span>
-      </div>
+      <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2026</p>
+      <p class="poster-tech">Adobe Fresco, Maya Autodesk, Substance Painter, A-Frame</p>
     </div>
     <div class="poster-image">
       <img src="Sandesh.jpg" alt="Sandesh AR Poster">
@@ -501,11 +497,8 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
     </div>
     <div class="poster-info">
       <h3>Silna (Stitching)</h3>
-      <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2024 to 2025</p>
-      <p class="poster-desc">The act of stitching as memory, as repair, as connection across generations.</p>
-      <div class="poster-scan-note">
-        <span>Point your phone camera at the QR on the poster to activate</span>
-      </div>
+      <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2026</p>
+      <p class="poster-tech">Adobe Fresco, Maya Autodesk, Substance Painter, A-Frame</p>
     </div>
   </div>
 
@@ -570,9 +563,8 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
   <div class="about-text-wrap">
     <p class="label">About</p>
-    <p>I work across augmented reality, 2D and 3D animation, mixed media, and digital art. My practice is rooted in everyday mundane things that become special through memory of those we are surrounded by and the culture of objects.</p>
-    <p>Built using A-Frame and open source libraries. Inclusive platforms matter to me as an educator. The work is designed to be encountered anywhere, by anyone.</p>
-    <p>I teach Art and Technology at a New Jersey public school, where I also run Kulture Lab, a student cultural club. Teaching has shaped my perspective to elevate cultural stories for public art.</p>
+    <p>New Jersey-based artist and educator whose work explores migration, memory, and environment as shared conditions of people, places, and things. Drawing on her experience as an immigrant, she examines how movement across time and space transforms everyday life through fragments of memory, the significance of everyday objects, and the slow evolution of inhabited spaces. Her foundation is in painting, expanded through digital illustration, large-scale public work, animation, 3D modeling, and Web AR built on open-source platforms accessible without an app.</p>
+    <p>Jancosko teaches Applied Technology at Monmouth Regional High School, where she founded Kulture Lab, a student-led club celebrating the diverse cultures of the school community. Her work has been published in <em>Brown Anthology</em> and <em>Battalion</em> (SideKick Books, England) and selected for exhibition at the Monmouth Museum.</p>
     <div class="about-details">
       <div>
         <p class="about-detail-label">Education</p>
@@ -580,7 +572,11 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       </div>
       <div>
         <p class="about-detail-label">Teaching</p>
-        <p class="about-detail-value">Art and Technology Teacher, NJ Public School<br>Kulture Lab, Founder</p>
+        <p class="about-detail-value">Applied Technology Teacher, Monmouth Regional High School<br>Kulture Lab, Founder</p>
+      </div>
+      <div>
+        <p class="about-detail-label">Published</p>
+        <p class="about-detail-value">Brown Anthology, England<br>Battalion, SideKick Books, England</p>
       </div>
       <div>
         <p class="about-detail-label">Instagram</p>
@@ -601,32 +597,37 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       <div class="cv-group">
         <p class="cv-group-label">Education</p>
         <div class="cv-row">
-          <p class="cv-row-year">MA</p>
-          <p class="cv-row-title">Art and Technology</p>
-          <p class="cv-row-sub">University of Oklahoma</p>
+          <p class="cv-row-year">2024 to 2026</p>
+          <p class="cv-row-title">MA, Art and Technology</p>
+          <p class="cv-row-sub">University of Oklahoma, Norman, OK &nbsp;·&nbsp; GPA 4.0</p>
         </div>
         <div class="cv-row">
-          <p class="cv-row-year">BFA</p>
-          <p class="cv-row-title">Painting</p>
-          <p class="cv-row-sub">Mason Gross School of the Arts, Rutgers University</p>
+          <p class="cv-row-year">2006 to 2010</p>
+          <p class="cv-row-title">BFA, Painting</p>
+          <p class="cv-row-sub">Mason Gross School of the Arts, Rutgers University &nbsp;·&nbsp; Cum Laude<br>James Dumont Travel Grant &nbsp;·&nbsp; Dean's Choice Award</p>
+        </div>
+        <div class="cv-row">
+          <p class="cv-row-year">2020 to 2021</p>
+          <p class="cv-row-title">ART CC Certification</p>
+          <p class="cv-row-sub">Brookdale Community College, Lincroft, NJ</p>
         </div>
       </div>
       <div class="cv-group">
         <p class="cv-group-label">Teaching</p>
         <div class="cv-row">
-          <p class="cv-row-year">Current</p>
-          <p class="cv-row-title">Art and Technology Teacher</p>
-          <p class="cv-row-sub">NJ Public School</p>
+          <p class="cv-row-year">2022 to present</p>
+          <p class="cv-row-title">Applied Technology Teacher</p>
+          <p class="cv-row-sub">Monmouth Regional High School &nbsp;·&nbsp; Grades 9 to 12<br>Engineering, digital media, foundations of art<br>Founder, Kulture Lab &nbsp;·&nbsp; Advisor, STEAM Committee</p>
         </div>
         <div class="cv-row">
-          <p class="cv-row-year">Current</p>
-          <p class="cv-row-title">Kulture Lab, Founder</p>
-          <p class="cv-row-sub">Student cultural club, NJ</p>
+          <p class="cv-row-year">2021 to 2022</p>
+          <p class="cv-row-title">Art Teacher</p>
+          <p class="cv-row-sub">Summerfield School &nbsp;·&nbsp; Pre-K to Grade 5<br>Taught art to Deaf Education classes with sign language interpreter<br>Community mural with student handprints &nbsp;·&nbsp; School-wide art show</p>
         </div>
         <div class="cv-row">
-          <p class="cv-row-year">2020</p>
-          <p class="cv-row-title">Watercolor Workshops</p>
-          <p class="cv-row-sub">Community practice, Monmouth County NJ</p>
+          <p class="cv-row-year">2020 to 2021</p>
+          <p class="cv-row-title">Art Teacher</p>
+          <p class="cv-row-sub">Mater Dei Prep School &nbsp;·&nbsp; Photography, Printmaking, Yearbook</p>
         </div>
       </div>
     </div>
@@ -639,25 +640,47 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
           <p class="cv-row-sub">Animation, A-Frame / WebAR</p>
         </div>
         <div class="cv-row">
-          <p class="cv-row-year">2025</p>
-          <p class="cv-row-title">Popping Bubbles and Moment of Stillness</p>
-          <p class="cv-row-sub">Interactive AR, A-Frame / Three.js</p>
+          <p class="cv-row-year">2026</p>
+          <p class="cv-row-title">AR Poster Series, Jhula, Sandesh, Silna</p>
+          <p class="cv-row-sub">Adobe Fresco, Maya Autodesk, Substance Painter, Blender, A-Frame</p>
         </div>
         <div class="cv-row">
-          <p class="cv-row-year">2024 to 2025</p>
-          <p class="cv-row-title">AR Poster Series</p>
-          <p class="cv-row-sub">Jhula, Sandesh, Silna (Stitching)</p>
+          <p class="cv-row-year">2025</p>
+          <p class="cv-row-title">Bubble Burst, Moment of Reflection</p>
+          <p class="cv-row-sub">Interactive AR, A-Frame / Three.js</p>
+        </div>
+      </div>
+      <div class="cv-group">
+        <p class="cv-group-label">Publications and Exhibitions</p>
+        <div class="cv-row">
+          <p class="cv-row-year">November 2026</p>
+          <p class="cv-row-title">Juried Exhibition</p>
+          <p class="cv-row-sub">Monmouth Museum, Lincroft, NJ &nbsp;·&nbsp; Watercolor illustration</p>
+        </div>
+        <div class="cv-row">
+          <p class="cv-row-year"></p>
+          <p class="cv-row-title">Brown Anthology</p>
+          <p class="cv-row-sub">England &nbsp;·&nbsp; Published artwork, South Asian Diaspora themes</p>
+        </div>
+        <div class="cv-row">
+          <p class="cv-row-year"></p>
+          <p class="cv-row-title">Battalion, SideKick Books</p>
+          <p class="cv-row-sub">England &nbsp;·&nbsp; Commissioned bat illustrations</p>
         </div>
       </div>
       <div class="cv-group">
         <p class="cv-group-label">Technical Skills</p>
         <div class="cv-row">
           <p class="cv-row-title">A-Frame, Three.js, WebAR</p>
-          <p class="cv-row-sub">HTML, CSS, JavaScript (open source)</p>
+          <p class="cv-row-sub">HTML, CSS, JavaScript</p>
         </div>
         <div class="cv-row">
-          <p class="cv-row-title">Maya, 3D Modeling</p>
-          <p class="cv-row-sub">Adobe Creative Suite</p>
+          <p class="cv-row-title">Maya Autodesk, Substance Painter, Blender</p>
+          <p class="cv-row-sub">3D modeling and texturing</p>
+        </div>
+        <div class="cv-row">
+          <p class="cv-row-title">Adobe Creative Suite, Adobe Fresco</p>
+          <p class="cv-row-sub">Illustration, digital art, print</p>
         </div>
         <div class="cv-row">
           <p class="cv-row-title">Procreate, iPad painting</p>
@@ -665,12 +688,11 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div></div>
 
 <!-- CONTACT -->
 <div id="contact" class="contact-wrap">
-  <h2>Let's Work Together</h2>
+  <h2>Contact</h2>
   <p>Open to public art commissions, exhibitions, and collaborations.</p>
   <div class="contact-links">
     <a href="https://instagram.com/priyamjancosko" class="contact-link">Instagram</a>
