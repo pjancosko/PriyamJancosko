@@ -272,7 +272,7 @@ nav {
 
 /* ABOUT */
 .about-wrap {
-  display: grid; grid-template-columns: 1fr 1fr; min-height: 60vh;
+  display: block;
 }
 .about-image { background: var(--navy); overflow: hidden; min-height: 400px; }
 .about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -284,7 +284,11 @@ nav {
 }
 .about-text-wrap {
   background: var(--navy); color: white;
-  padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center;
+  padding: 4rem 8rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: start;
 }
 .about-text-wrap .label {
   font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -376,7 +380,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   .work-grid { grid-template-columns: 1fr 1fr; }
   .video-tile { grid-column: span 2; }
   .about-wrap { grid-template-columns: 1fr; }
-  .about-text-wrap { padding: 3rem 1.5rem; }
+  .about-text-wrap { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
   .cv-cols { grid-template-columns: 1fr; gap: 0; }
   .cv-wrap, .contact-wrap { padding: 3rem 1.5rem; }
   .sec-head { padding: 2rem 1.5rem 1rem; }
@@ -510,6 +514,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       <h3>Jhula</h3>
       <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2026</p>
       <p class="poster-tech">Adobe Fresco, Maya Autodesk, Substance Painter, A-Frame</p>
+      <a href="https://youtube.com/shorts/cxEvDgcXNzQ" target="_blank" style="display:inline-block; margin-top:1.2rem; font-family:'Quicksand',sans-serif; font-size:0.65rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--navy); text-decoration:none; border-bottom:1px solid var(--navy); padding-bottom:2px;">Watch Demo</a>
     </div>
   </div>
 
@@ -519,6 +524,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       <h3>Sandesh</h3>
       <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2026</p>
       <p class="poster-tech">Adobe Fresco, Maya Autodesk, Substance Painter, A-Frame</p>
+      <a href="https://youtube.com/shorts/cxEvDgcXNzQ" target="_blank" style="display:inline-block; margin-top:1.2rem; font-family:'Quicksand',sans-serif; font-size:0.65rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--navy); text-decoration:none; border-bottom:1px solid var(--navy); padding-bottom:2px;">Watch Demo</a>
     </div>
     <div class="poster-image">
       <img src="Sandesh.jpg" alt="Sandesh AR Poster">
@@ -534,11 +540,14 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       <h3>Silna (Stitching)</h3>
       <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2026</p>
       <p class="poster-tech">Adobe Fresco, Maya Autodesk, Substance Painter, A-Frame</p>
+      <a href="https://youtube.com/shorts/cxEvDgcXNzQ" target="_blank" style="display:inline-block; margin-top:1.2rem; font-family:'Quicksand',sans-serif; font-size:0.65rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--navy); text-decoration:none; border-bottom:1px solid var(--navy); padding-bottom:2px;">Watch Demo</a>
     </div>
   </div>
 
 
 </div>
+
+<div style="height:3rem; background:var(--warm-white);"></div>
 
 <!-- HINGLISH FEATURE -->
 <div id="hinglish" class="hinglish-section">
@@ -553,6 +562,8 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
     </div>
   </div>
 </div>
+
+<div style="height:3rem; background:var(--warm-white);"></div>
 
 <!-- ILLUSTRATION SERIES -->
 <div id="digital">
@@ -574,6 +585,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
 
   <!-- PUBLISHED WORK -->
+  <div style="height:2rem;"></div>
   <div style="padding: 2rem 2.5rem 0.5rem;">
     <p style="font-family:'Quicksand',sans-serif; font-size:0.65rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--sage);">Published Work</p>
   </div>
@@ -625,6 +637,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
 
   <!-- MAA SERIES -->
+  <div style="height:2rem;"></div>
   <div style="padding: 2rem 2.5rem 0.5rem;">
     <p style="font-family:'Quicksand',sans-serif; font-size:0.65rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--sage);">Maa Series</p>
     <p style="font-family:'Barlow',sans-serif; font-size:0.82rem; font-weight:300; color:var(--muted); margin-top:0.3rem;">Digital mixed media, 2020 to 2021</p>
@@ -638,6 +651,8 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
     <div class="work-tile"><img src="Sketch4.jpg" alt="Sketch 4"><div class="work-tile-info"><p>Sketch</p></div></div>
   </div>
 </div>
+
+<div style="height:3rem; background:#F0EDE6;"></div>
 
 <!-- PEOPLE PLACES AND THINGS -->
 <div id="analog" style="background:#F0EDE6;">
@@ -659,14 +674,11 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
 
 <!-- ABOUT -->
 <div id="about" class="about-wrap">
-  <div class="about-image">
-    <!-- <img src="your-photo.jpg" alt="Priyam Jancosko"> -->
-    <div class="about-image-placeholder">+ add your photo</div>
-  </div>
+  
   <div class="about-text-wrap">
     <p class="label">About</p>
     <p>New Jersey-based artist and educator whose work explores migration, memory, and environment as shared conditions of people, places, and things. Drawing on her experience as an immigrant, she examines how movement across time and space transforms everyday life through fragments of memory, the significance of everyday objects, and the slow evolution of inhabited spaces. Her foundation is in painting, expanded through digital illustration, large-scale public work, animation, 3D modeling, and Web AR built on open-source platforms accessible without an app.</p>
-    <p>Jancosko teaches Applied Technology at Monmouth Regional High School, where she founded Kulture Lab, a student-led club celebrating the diverse cultures of the school community. Her work has been published in <em>Brown Anthology</em> and <em>Battalion</em> (SideKick Books, England) and selected for exhibition at the Monmouth Museum.</p>
+    <p>Jancosko teaches Applied Technology at Monmouth Regional High School. Her work has been published in <em>Brown Anthology</em> and <em>Battalion</em> (SideKick Books, England) and selected for exhibition at the Monmouth Museum.</p>
     <div class="about-details">
       <div>
         <p class="about-detail-label">Education</p>
@@ -674,7 +686,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       </div>
       <div>
         <p class="about-detail-label">Teaching</p>
-        <p class="about-detail-value">Applied Technology Teacher, Monmouth Regional High School<br>Kulture Lab, Founder</p>
+        <p class="about-detail-value">Applied Technology Teacher, Monmouth Regional High School</p>
       </div>
       <div>
         <p class="about-detail-label">Published</p>
