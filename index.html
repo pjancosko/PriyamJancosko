@@ -35,7 +35,6 @@ body {
   overflow-x: hidden;
 }
 
-/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
@@ -59,7 +58,6 @@ nav {
 }
 .nav-links a:hover { opacity: 1; }
 
-/* HERO VIDEO */
 .hero-video-wrap {
   position: relative; width: 100%;
   padding-top: 56px; background: var(--ink);
@@ -76,7 +74,6 @@ nav {
   color: rgba(255,255,255,0.4);
 }
 
-/* SECTION HEADER */
 .sec-head {
   display: flex; align-items: baseline; justify-content: space-between;
   padding: 2.5rem 2.5rem 1rem;
@@ -93,7 +90,6 @@ nav {
 }
 .sec-spacer { height: 3rem; background: var(--warm-white); }
 
-/* SUBSECTION LABEL */
 .sub-label { padding: 1.5rem 2.5rem 0.5rem; }
 .sub-label p:first-child {
   font-family: 'Quicksand', sans-serif;
@@ -106,7 +102,6 @@ nav {
 }
 .sub-spacer { height: 2rem; }
 
-/* AR POSTERS */
 .ar-section { background: var(--warm-white); padding-bottom: 3px; }
 .ar-desc {
   font-family: 'Barlow', sans-serif;
@@ -158,20 +153,7 @@ nav {
   font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--sage); margin-top: 0.4rem;
 }
-.wildsun-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
-  gap: 3px; padding: 3px;
-  align-items: stretch;
-}
-.wildsun-images {
-  display: contents;
-}
-.wildsun-text {
-  background: var(--warm-white);
-  padding: 2.5rem 2rem;
-  display: flex; flex-direction: column; justify-content: center;
-}
+.demo-link {
   display: inline-block; margin-top: 1.2rem;
   font-family: 'Quicksand', sans-serif;
   font-size: 0.58rem; font-weight: 600; letter-spacing: 0.12em;
@@ -183,7 +165,19 @@ nav {
 }
 .demo-link:hover { background: var(--blush); }
 
-/* HINGLISH */
+.wildsun-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 3px; padding: 3px;
+  align-items: stretch;
+}
+.wildsun-images { display: contents; }
+.wildsun-text {
+  background: var(--warm-white);
+  padding: 2.5rem 2rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
 .hinglish-section { background: var(--navy); }
 .hinglish-inner {
   display: grid; grid-template-columns: 1fr 1.8fr;
@@ -215,7 +209,6 @@ nav {
   width: 100%; height: 100%; border: none; display: block;
 }
 
-/* WORK TILES */
 .work-tile {
   position: relative; overflow: hidden;
   background: #e8e4de; cursor: pointer;
@@ -239,7 +232,6 @@ nav {
   font-size: 0.95rem; color: white;
 }
 
-/* ABOUT */
 .about-wrap { background: var(--navy); }
 .about-text-wrap {
   background: var(--navy); color: white;
@@ -270,7 +262,6 @@ nav {
 }
 .about-detail-value a { color: var(--blush); text-decoration: none; }
 
-/* CV */
 .cv-wrap { padding: 4rem 2.5rem; background: var(--warm-white); }
 .cv-top {
   display: flex; align-items: baseline; justify-content: space-between;
@@ -303,7 +294,6 @@ nav {
 }
 .cv-row-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; line-height: 1.6; }
 
-/* CONTACT */
 .contact-wrap {
   padding: 5rem 2.5rem; text-align: center; background: var(--blush);
 }
@@ -336,7 +326,6 @@ footer {
 }
 footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   nav { padding: 1rem 1.2rem; }
   .nav-links { gap: 1.2rem; }
@@ -346,17 +335,10 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   .cv-cols { grid-template-columns: 1fr; gap: 0; }
   .cv-wrap, .contact-wrap { padding: 3rem 1.5rem; }
   .sec-head { padding: 2rem 1.5rem 1rem; }
-  .wildsun-wrap {
-    grid-template-columns: 1fr;
-  }
-  .wildsun-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3px;
-  }
-  .wildsun-text {
-    padding: 1.5rem;
-  }
+  .wildsun-wrap { grid-template-columns: 1fr; }
+  .wildsun-images { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .wildsun-text { padding: 1.5rem; }
+  .poster-row, .poster-row-alt { grid-template-columns: 1fr; min-height: auto; }
   .poster-row-alt .poster-image { order: -1; }
   .poster-image img { padding: 1rem; }
   .poster-info { padding: 2rem 1.5rem; border-left: none; border-right: none; border-top: 0.5px solid rgba(42,58,92,0.06); }
@@ -375,17 +357,11 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </ul>
 </nav>
 
-<!-- HERO VIDEO -->
 <div class="hero-video-wrap">
-  <iframe
-    src="https://www.youtube.com/embed/Eo9cTHg2Vcw?autoplay=1&mute=1&loop=1&playlist=Eo9cTHg2Vcw&controls=0&modestbranding=1&rel=0"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
+  <iframe src="https://www.youtube.com/embed/Eo9cTHg2Vcw?autoplay=1&mute=1&loop=1&playlist=Eo9cTHg2Vcw&controls=0&modestbranding=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   <span class="hero-video-caption">Priyam Jancosko</span>
 </div>
 
-<!-- AR POSTERS -->
 <div id="ar" class="ar-section" style="padding-top:56px;">
   <div class="sec-head">
     <h2>Gyanlok AR Poster Series</h2>
@@ -393,11 +369,8 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
   <p class="ar-desc">Gyanlok is a childhood home. This series traces the everyday moments of shared experience that live within its walls, rendered as fragments of memory through augmented reality. Each poster holds a sense of longing, for roots, for the people who occupied those spaces, for the ordinary rituals that only become remarkable in their absence. Scan with your phone to enter. No app required.</p>
 
-  <!-- JHULA -->
   <div class="poster-row">
-    <div class="poster-image">
-      <img src="Jhula.jpg" alt="Jhula AR Poster">
-    </div>
+    <div class="poster-image"><img src="Jhula.jpg" alt="Jhula AR Poster"></div>
     <div class="poster-info">
       <h3>Jhula</h3>
       <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2026</p>
@@ -406,7 +379,6 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
     </div>
   </div>
 
-  <!-- SANDESH -->
   <div class="poster-row poster-row-alt">
     <div class="poster-info">
       <h3>Sandesh</h3>
@@ -414,16 +386,11 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       <p class="poster-tech">Adobe Fresco, Maya Autodesk, Substance Painter, A-Frame</p>
       <a href="https://youtube.com/shorts/cxEvDgcXNzQ" target="_blank" class="demo-link">Watch Demo</a>
     </div>
-    <div class="poster-image">
-      <img src="Sandesh.jpg" alt="Sandesh AR Poster">
-    </div>
+    <div class="poster-image"><img src="Sandesh.jpg" alt="Sandesh AR Poster"></div>
   </div>
 
-  <!-- SILNA -->
   <div class="poster-row">
-    <div class="poster-image">
-      <img src="Silna.jpg" alt="Silna AR Poster">
-    </div>
+    <div class="poster-image"><img src="Silna.jpg" alt="Silna AR Poster"></div>
     <div class="poster-info">
       <h3>Silna (Stitching)</h3>
       <p class="poster-sub">AR Poster &nbsp;·&nbsp; 2026</p>
@@ -431,12 +398,10 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       <a href="https://youtube.com/shorts/eIF8yCydZg4" target="_blank" class="demo-link">Watch Demo</a>
     </div>
   </div>
-
 </div>
 
 <div class="sec-spacer"></div>
 
-<!-- HINGLISH -->
 <div id="hinglish" class="hinglish-section">
   <div class="hinglish-inner">
     <div class="hinglish-text">
@@ -450,13 +415,12 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
 </div>
 
-<!-- TIME AND SPACE -->
 <div style="background: #1a1a2e; padding: 2.5rem;">
   <div style="display:grid; grid-template-columns:1fr 1.8fr; gap:3rem; align-items:center; max-width:900px; margin:0 auto;">
     <div>
       <p style="font-family:'Quicksand',sans-serif; font-size:0.62rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:0.75rem;">2024</p>
       <p style="font-family:'Quicksand',sans-serif; font-size:1.4rem; font-weight:300; color:white; line-height:1.3; margin-bottom:0.75rem;">Time and Space</p>
-      <p style="font-family:'Barlow',sans-serif; font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.7; margin-bottom:0.5rem;">An abstract exploration of noise and quiet through motion. Adobe After Effects.</p>
+      <p style="font-family:'Barlow',sans-serif; font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.7;">An abstract exploration of noise and quiet through motion. Adobe After Effects.</p>
     </div>
     <div style="position:relative; aspect-ratio:16/9; background:#000; border-radius:4px; overflow:hidden;">
       <iframe src="https://www.youtube.com/embed/cEqgMh0OEag?rel=0&modestbranding=1" allowfullscreen allow="autoplay; fullscreen" style="position:absolute; inset:0; width:100%; height:100%; border:none;"></iframe>
@@ -465,6 +429,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
 </div>
 
 <div class="sec-spacer"></div>
+
 <div id="digital">
   <div class="sec-head">
     <h2>Illustration Series</h2>
@@ -483,10 +448,7 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
 
   <div class="sub-spacer"></div>
-  <div class="sub-label">
-    <p>Published Work</p>
-    <p></p>
-  </div>
+  <div class="sub-label"><p>Published Work</p><p></p></div>
   <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:3px; padding:0 3px 3px;">
     <div style="position:relative; overflow:hidden; background:#e8e4de;">
       <img src="Mulberry.jpg" alt="Mulberry, Brown Anthology" style="width:100%; height:100%; object-fit:cover; display:block; min-height:320px;">
@@ -550,7 +512,6 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
 
 <div style="height:3rem; background:#F0EDE6;"></div>
 
-<!-- PEOPLE PLACES AND THINGS -->
 <div id="analog" style="background:#F0EDE6;">
   <div class="sec-head">
     <h2>People, Places and Things</h2>
@@ -568,7 +529,6 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
 </div>
 
-<!-- ABOUT -->
 <div id="about" class="about-wrap">
   <div class="about-text-wrap">
     <div>
@@ -597,7 +557,6 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
 </div>
 
-<!-- CV -->
 <div id="cv" class="cv-wrap">
   <div class="cv-top">
     <h2>CV</h2>
@@ -664,6 +623,11 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
       <div class="cv-group">
         <p class="cv-group-label">Publications and Exhibitions</p>
         <div class="cv-row">
+          <p class="cv-row-year">2026</p>
+          <p class="cv-row-title">US Exhibition, Juried Show</p>
+          <p class="cv-row-sub">Orange County Center for Contemporary Art, Santa Ana, CA &nbsp;·&nbsp; Gyanlok AR (Jhula)</p>
+        </div>
+        <div class="cv-row">
           <p class="cv-row-year">November 2017</p>
           <p class="cv-row-title">Juried Exhibition</p>
           <p class="cv-row-sub">Monmouth Museum, Lincroft, NJ &nbsp;·&nbsp; Watercolor illustration</p>
@@ -700,7 +664,6 @@ footer span { font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing:
   </div>
 </div>
 
-<!-- CONTACT -->
 <div id="contact" class="contact-wrap">
   <h2>Contact</h2>
   <p class="contact-desc">Open to public art commissions, exhibitions, and collaborations.</p>
